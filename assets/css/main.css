@@ -136,6 +136,34 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   padding: 0.55rem 0 0;
 }
 
+/* ---------- home: dashboard grid ---------- */
+
+.wrap.is-wide { max-width: 76rem; }
+
+.dash {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 0 2.75rem;
+  align-items: start;
+}
+/* sans ceci, le tableau impose sa largeur mini a la colonne et fait deborder la page */
+.dash > * { min-width: 0; }
+.dash > .list { padding: 1.6rem 0 1rem; }
+.dash .adv { font-size: 0.8rem; }
+.dash .adv td { padding: 0.45rem 0.6rem 0.45rem 0; }
+.dash .adv { font-size: 0.78rem; }
+.dash .adv .c-title { min-width: 9rem; }
+.dash .adv .c-proj { font-size: 0.76rem; }
+.dash .proj { padding: 1rem 1.15rem; margin-bottom: 0.8rem; }
+.dash .proj-lead { font-size: 0.92rem; margin: 0.45rem 0 0.6rem; }
+.dash .proj-body { font-size: 0.86rem; margin-bottom: 0.75rem; }
+
+@media (max-width: 70rem) {
+  .wrap.is-wide { max-width: 46rem; }
+  .dash { grid-template-columns: 1fr; gap: 0; }
+  .dash .adv { font-size: 0.86rem; }
+}
+
 /* ---------- home ---------- */
 
 .hero {
@@ -144,6 +172,10 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   padding: 3.5rem 0 2.5rem;
   border-bottom: 1px solid var(--line);
 }
+.is-wide .hero { padding: 2.25rem 0 1.6rem; }
+.is-wide .hero h1 { font-size: clamp(1.5rem, 3.4vw, 1.95rem); }
+.is-wide .hero p { font-size: 0.94rem; max-width: 48rem; }
+.is-wide .stats { margin-top: 1.1rem; }
 .hero h1 {
   font-family: var(--mono);
   font-size: clamp(1.6rem, 5vw, 2.3rem);

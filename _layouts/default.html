@@ -53,7 +53,7 @@
   <span class="winsp"><b>{{ cur }}</b>/<a href="{{ alt | relative_url }}" hreflang="{{ other }}">{{ other }}</a></span>
 </header>
 
-<main class="wrap">
+<main class="wrap{% if page.wide %} is-wide{% endif %}">
   <span class="pane-label">{{ pane }}</span>
   {{ content }}
 </main>

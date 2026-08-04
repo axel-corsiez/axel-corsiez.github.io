@@ -1,5 +1,6 @@
 ---
 layout: default
+wide: true
 lang: en
 alt_url: /fr/
 ---
@@ -23,13 +24,15 @@ alt_url: /fr/
   </ul>
 </section>
 
-<section class="list">
-  {% include advisories.html lang="en" %}
-</section>
+<div class="dash">
+  <section class="list">
+    {% include advisories.html lang="en" %}
+  </section>
 
-<section class="list">
-  {% include projects.html lang="en" %}
-</section>
+  <section class="list">
+    {% include projects.html lang="en" %}
+  </section>
+</div>
 
 <section class="list">
   <h2 class="list-title">articles</h2>
