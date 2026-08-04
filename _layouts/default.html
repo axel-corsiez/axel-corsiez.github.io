@@ -1,7 +1,7 @@
 {% assign cur = page.lang | default: 'en' %}
 {% assign other = 'fr' %}{% if cur == 'fr' %}{% assign other = 'en' %}{% endif %}
 
-{%- comment -%} find the sibling translation: explicit alt_url wins, else match by ref {%- endcomment -%}
+{%- comment -%} sibling translation: explicit alt_url wins, else match by ref {%- endcomment -%}
 {% assign alt = page.alt_url %}
 {% if alt == nil and page.ref %}
   {% assign sib = site.posts | where: 'ref', page.ref | where: 'lang', other | first %}
@@ -9,15 +9,18 @@
 {% endif %}
 {% if alt == nil %}{% if other == 'fr' %}{% assign alt = '/fr/' %}{% else %}{% assign alt = '/' %}{% endif %}{% endif %}
 
-{% if cur == 'fr' %}
-  {% assign home = '/fr/' %}{% assign who = '/fr/whoami/' %}
-  {% assign nav_articles = 'articles' %}{% assign nav_who = 'whoami' %}
-  {% assign foot_note = "toute recherche est menée sur des systèmes que je suis autorisé à tester" %}
-{% else %}
-  {% assign home = '/' %}{% assign who = '/whoami/' %}
-  {% assign nav_articles = 'articles' %}{% assign nav_who = 'whoami' %}
-  {% assign foot_note = 'all research conducted on systems I am authorised to test' %}
-{% endif %}
+{% if cur == 'fr' %}{% assign home = '/fr/' %}{% assign who = '/fr/whoami/' %}
+{% else %}{% assign home = '/' %}{% assign who = '/whoami/' %}{% endif %}
+
+{%- comment -%} active tmux window + pane label {%- endcomment -%}
+{% assign w = 'articles' %}
+{% if page.url contains 'whoami' %}{% assign w = 'whoami' %}{% endif %}
+{% if page.pane %}{% assign pane = page.pane %}
+{% elsif w == 'whoami' %}{% assign pane = 'pane 0 · whoami' %}
+{% elsif page.layout == 'post' %}{% assign pane = 'pane 0 · article' %}
+{% else %}{% assign pane = 'pane 0 · index' %}{% endif %}
+
+{% assign nposts = site.posts | where: 'lang', cur | size %}
 <!doctype html>
 <html lang="{{ cur }}">
 <head>
@@ -26,6 +29,7 @@
 <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} · {{ site.tagline }}{% endif %}</title>
 <meta name="description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
 <meta name="author" content="{{ site.author }}">
+<meta name="theme-color" content="#1d2021">
 <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 <meta property="og:description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
 <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
@@ -35,36 +39,30 @@
 <link rel="alternate" hreflang="{{ p.lang }}" href="{{ p.url | absolute_url }}">
 {% endif %}{% endfor %}{% endif %}
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230a0c10'/><text x='2' y='12' font-family='monospace' font-size='11' fill='%2357f287'>z</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23282828'/><text x='2' y='12' font-family='monospace' font-size='11' fill='%23fabd2f'>z</text></svg>">
 </head>
 <body>
-<div class="scan" aria-hidden="true"></div>
 
-<header class="site-head">
-  <div class="wrap">
-    <a class="brand" href="{{ home | relative_url }}">
-      <span class="brand-prompt">z1kx@offsec</span><span class="brand-sep">:</span><span class="brand-path">~</span><span class="brand-caret">$</span>
-    </a>
-    <nav class="site-nav">
-      <a href="{{ home | relative_url }}">{{ nav_articles }}</a>
-      <a href="{{ who | relative_url }}">{{ nav_who }}</a>
-      <a href="https://github.com/{{ site.github_user }}" rel="me noopener">github</a>
-      <span class="lang-switch" aria-label="language">
-        <span class="lang-cur">{{ cur }}</span><span class="lang-sep">/</span><a href="{{ alt | relative_url }}" hreflang="{{ other }}">{{ other }}</a>
-      </span>
-    </nav>
-  </div>
+<header class="winbar">
+  <a class="sess" href="{{ home | relative_url }}">z1kx</a>
+  <a class="win{% if w == 'articles' %} on{% endif %}" href="{{ home | relative_url }}">0:articles{% if w == 'articles' %}*{% endif %}</a>
+  <a class="win{% if w == 'whoami' %} on{% endif %}" href="{{ who | relative_url }}">1:whoami{% if w == 'whoami' %}*{% endif %}</a>
+  <a class="win" href="https://github.com/{{ site.github_user }}" rel="me noopener">2:github</a>
+  <span class="winsp"><b>{{ cur }}</b>/<a href="{{ alt | relative_url }}" hreflang="{{ other }}">{{ other }}</a></span>
 </header>
 
 <main class="wrap">
+  <span class="pane-label">{{ pane }}</span>
   {{ content }}
 </main>
 
-<footer class="site-foot">
-  <div class="wrap">
-    <span class="dim">{{ site.title }} / {{ site.tagline }}</span>
-    <span class="dim">{{ foot_note }}</span>
-  </div>
+<footer class="statusbar">
+  <span class="sb-sess">z1kx</span>
+  <span class="sb-path">{{ page.url }}</span>
+  <span class="sb-right">
+    <span class="sb-count">{{ nposts }} {% if cur == 'fr' %}article{% if nposts != 1 %}s{% endif %}{% else %}article{% if nposts != 1 %}s{% endif %}{% endif %}</span>
+    <span class="sb-time">{{ site.time | date: '%Y-%m-%d' }}</span>
+  </span>
 </footer>
 </body>
 </html>
