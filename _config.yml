@@ -9,6 +9,9 @@ baseurl: ""
 
 github_user: axel-corsiez
 linkedin_url: https://www.linkedin.com/in/axel-corsiez/
+# entity-encoded so a naive regex scraper does not lift it from the source
+email_href: "&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#120;&#101;&#108;&#46;&#99;&#111;&#114;&#115;&#105;&#101;&#122;&#64;&#112;&#114;&#111;&#116;&#111;&#110;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
+email_text: "&#97;&#120;&#101;&#108;&#46;&#99;&#111;&#114;&#115;&#105;&#101;&#122;&#64;&#112;&#114;&#111;&#116;&#111;&#110;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
 
 markdown: kramdown
 permalink: /:year/:month/:slug/

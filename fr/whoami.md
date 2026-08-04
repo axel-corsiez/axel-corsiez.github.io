@@ -57,6 +57,7 @@ compteur, sans nom de projet.
 <ul class="contact">
   <li><b>github</b><a href="https://github.com/axel-corsiez" rel="me noopener">axel-corsiez</a></li>
   <li><b>linkedin</b><a href="https://www.linkedin.com/in/axel-corsiez/" rel="me noopener">axel-corsiez</a></li>
+  <li><b>mail</b><a href="{{ site.email_href }}">{{ site.email_text }}</a></li>
 </ul>
 
 <p class="avail"><b>Ouvert aux opportunités.</b> Recherche de vulnérabilités, sécurité applicative, outillage offensif.</p>

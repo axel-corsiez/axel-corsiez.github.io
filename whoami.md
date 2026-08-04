@@ -53,6 +53,7 @@ Work that is still in review appears on this site as a count, with no project na
 <ul class="contact">
   <li><b>github</b><a href="https://github.com/axel-corsiez" rel="me noopener">axel-corsiez</a></li>
   <li><b>linkedin</b><a href="https://www.linkedin.com/in/axel-corsiez/" rel="me noopener">axel-corsiez</a></li>
+  <li><b>mail</b><a href="{{ site.email_href }}">{{ site.email_text }}</a></li>
 </ul>
 
 <p class="avail"><b>Open to opportunities.</b> Vulnerability research, application security, offensive tooling.</p>
