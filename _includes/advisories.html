@@ -51,12 +51,20 @@
   <br>&rsaquo; <b>{{ pl.awaiting_publication }}</b> soumis, en cours de relecture ou de rédaction chez le mainteneur
   <br>&rsaquo; <b>{{ pl.closed_unpublished }}</b> clos sans avis public : refusés, doublons, ou corrigés en silence
   <br><span class="dim">Ni projet ni détail tant qu'un correctif n'est pas publié.</span>
+{% for v in site.data.cve.vendor_track %}
+  <br><br><b>{{ v.count }}</b> de plus, hors GitHub : {{ v.status }}.
+  <br><span class="dim">{{ v.cve_status }}. {{ v.credit }}.</span>
+{% endfor %}
 {% else %}
   <b>{{ pl.total_credited }}</b> advisories across these projects credit me.
   <br>&rsaquo; <b>{{ published_n }}</b> published, listed above
   <br>&rsaquo; <b>{{ pl.awaiting_publication }}</b> submitted, in maintainer review or drafting
   <br>&rsaquo; <b>{{ pl.closed_unpublished }}</b> closed without a public advisory: declined, duplicate, or fixed silently
   <br><span class="dim">No project and no detail until a fix ships.</span>
+{% for v in site.data.cve.vendor_track %}
+  <br><br><b>{{ v.count }}</b> more, off GitHub: {{ v.status }}.
+  <br><span class="dim">{{ v.cve_status }}. {{ v.credit }}.</span>
+{% endfor %}
 {% endif %}
 </p>
 {% endif %}

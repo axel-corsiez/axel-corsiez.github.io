@@ -143,3 +143,15 @@ pipeline:
   total_credited: 53
   awaiting_publication: 17   # under maintainer review or drafted
   closed_unpublished: 25     # closed without an advisory: declined, duplicate, or fixed silently
+
+# Reported outside GitHub, accepted by the vendor, fix scheduled but not shipped.
+# Vendor name stays out until the release lands: the issues are still unpatched.
+vendor_track:
+  - count: 3
+    channel: "reported by email to the vendor"
+    status: "accepted, fix scheduled for an upcoming release"
+    cve_status: "CVE identifiers will be created three months after that release, per the vendor's disclosure policy"
+    credit: "GitHub account to be credited"
+    # revisit once the release ships:
+    reminder: "name the project and publish write-ups only after the fixed release is out"
+
