@@ -9,7 +9,7 @@
 
 <h2 class="list-title">{{ t_head }}</h2>
 
-{% for p in site.data.projects %}
+{% for p in site.data.projects %}{% if p.hidden %}{% continue %}{% endif %}
 <article class="proj{% if p.flagship %} is-flagship{% endif %}">
   <div class="proj-head">
     <h3 class="proj-name">{{ p.name }}</h3>

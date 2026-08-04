@@ -61,6 +61,7 @@
     une machine de laboratoire qui m'appartient.
 
 - name: ASM platform
+  hidden: true          # masqué pour l'instant : passer à false pour le réafficher
   private: true
   assisted: true
   status: active
