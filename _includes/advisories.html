@@ -1,4 +1,5 @@
 {% assign L = include.lang | default: 'en' %}
+{% assign published_n = site.data.cve.published | size %}
 {% if L == 'fr' %}
   {% assign t_head = 'avis publiés' %}
   {% assign h_id = 'cve' %}{% assign h_proj = 'projet' %}{% assign h_what = 'ce que c\'était' %}
@@ -27,7 +28,7 @@
     {% assign linked = site.posts | where: 'ref', a.post | where: 'lang', L | first %}
     {% if linked == nil %}{% assign linked = site.posts | where: 'ref', a.post | first %}{% endif %}
     <tr>
-      <td class="c-id"><a href="https://github.com/advisories/{{ a.ghsa }}" rel="noopener">{{ a.cve }}</a></td>
+      <td class="c-id"><a href="https://github.com/advisories/{{ a.ghsa }}" rel="noopener">{% if a.cve %}{{ a.cve }}{% else %}{{ a.ghsa }}{% endif %}</a></td>
       <td class="c-proj">{{ a.project }}</td>
       <td class="c-title">
         {% if linked %}<a href="{{ linked.url | relative_url }}">{{ a.title }}</a>
@@ -41,10 +42,21 @@
 </table>
 </div>
 
-{% if site.data.cve.pending and site.data.cve.pending.size > 0 %}
+{% assign pl = site.data.cve.pipeline %}
+{% if pl %}
 <p class="embargo">
-  <b>{{ site.data.cve.pending.size }}</b> {{ t_pending }}.
-  {% for p in site.data.cve.pending %}<br>
-  &rsaquo; {{ p.class }} · {{ p.cwe }} · {{ p.severity }} · {{ p.note }}{% endfor %}
+{% if L == 'fr' %}
+  <b>{{ pl.total_credited }}</b> avis au total me créditent sur ces projets.
+  <br>&rsaquo; <b>{{ published_n }}</b> publiés, listés ci-dessus
+  <br>&rsaquo; <b>{{ pl.awaiting_publication }}</b> soumis, en cours de relecture ou de rédaction chez le mainteneur
+  <br>&rsaquo; <b>{{ pl.closed_unpublished }}</b> clos sans avis public : refusés, doublons, ou corrigés en silence
+  <br><span class="dim">Ni projet ni détail tant qu'un correctif n'est pas publié.</span>
+{% else %}
+  <b>{{ pl.total_credited }}</b> advisories across these projects credit me.
+  <br>&rsaquo; <b>{{ published_n }}</b> published, listed above
+  <br>&rsaquo; <b>{{ pl.awaiting_publication }}</b> submitted, in maintainer review or drafting
+  <br>&rsaquo; <b>{{ pl.closed_unpublished }}</b> closed without a public advisory: declined, duplicate, or fixed silently
+  <br><span class="dim">No project and no detail until a fix ships.</span>
+{% endif %}
 </p>
 {% endif %}

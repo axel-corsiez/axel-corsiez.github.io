@@ -1,18 +1,42 @@
 # Advisories credited to axel-corsiez.
-# published: advisory is live, a write-up may exist (post: <slug of the ref>)
-# pending:   submitted, not yet published. NO project name until the fix ships.
+#
+# published : advisory is live and the fix has shipped. Safe to describe in full.
+# pipeline  : aggregate counts only. No project names, no classes tied to a name,
+#             because those reports are not public yet.
 
 published:
+  - cve: CVE-2026-57498
+    ghsa: GHSA-725v-f5gh-22q9
+    project: Coolify
+    repo: coollabsio/coolify
+    severity: critical
+    cvss: 9.6
+    cwe: CWE-639
+    date: 2026-06-28
+    fixed_in: v4.0.0-beta.474
+    title: "Cross-team deployment through unscoped Livewire parameters"
+    post: coolify-cross-team-idor
+
+  - cve: CVE-2026-41522
+    ghsa: GHSA-3mxh-x92q-9r25
+    project: DFIR-IRIS
+    repo: dfir-iris/iris-web
+    severity: high
+    cvss: null
+    cwe: CWE-285
+    date: 2026-05-28
+    fixed_in: 2.4.28
+    title: "A GraphQL endpoint that never got the REST API's authorisation"
+    post: iris-graphql-authz
+
   - cve: CVE-2026-48146
     ghsa: GHSA-g6qx-g4pr-92v7
     project: Budibase
-    ecosystem: npm
-    package: "@budibase/server"
+    repo: Budibase/budibase
     severity: high
     cvss: 7.7
     cwe: CWE-918
-    class: SSRF
-    date: 2026-06-12
+    date: 2026-05-21
     fixed_in: 3.39.0
     title: "SSRF via the OAuth2 token endpoint"
     post: budibase-oauth2-ssrf
@@ -20,13 +44,11 @@ published:
   - cve: CVE-2026-40163
     ghsa: GHSA-32pv-mpqg-h292
     project: Saltcorn
-    ecosystem: npm
-    package: "@saltcorn/server"
+    repo: saltcorn/saltcorn
     severity: high
     cvss: 8.2
     cwe: CWE-22
-    class: path traversal
-    date: 2026-04-10
+    date: 2026-04-09
     fixed_in: 1.4.5
     title: "Unauthenticated path traversal in the mobile sync endpoints"
     post: saltcorn-sync-path-traversal
@@ -34,13 +56,11 @@ published:
   - cve: CVE-2026-35594
     ghsa: GHSA-96q5-xm3p-7m84
     project: Vikunja
-    ecosystem: go
-    package: code.vikunja.io/api
+    repo: go-vikunja/vikunja
     severity: medium
     cvss: 6.5
     cwe: CWE-613
-    class: broken authorisation
-    date: 2026-04-10
+    date: 2026-04-09
     fixed_in: 2.3.0
     title: "Link-share tokens outlive the share they came from"
     post: vikunja-linkshare-jwt
@@ -48,13 +68,11 @@ published:
   - cve: CVE-2026-35490
     ghsa: GHSA-jmrh-xmgh-x9j4
     project: changedetection.io
-    ecosystem: pip
-    package: changedetection.io
+    repo: dgtlmoon/changedetection.io
     severity: critical
-    cvss: null
+    cvss: 9.8
     cwe: CWE-863
-    class: authentication bypass
-    date: 2026-04-06
+    date: 2026-04-04
     fixed_in: 0.54.8
     title: "Authentication bypass through decorator ordering"
     post: changedetection-decorator-order
@@ -62,20 +80,66 @@ published:
   - cve: CVE-2026-35463
     ghsa: GHSA-w48f-wwwf-f5fr
     project: pyLoad
-    ecosystem: pip
-    package: pyload-ng
+    repo: pyload/pyload
     severity: high
-    cvss: null
+    cvss: 8.8
     cwe: CWE-78
-    class: command injection
-    date: 2026-04-04
+    date: 2026-04-02
     fixed_in: null
     title: "Privilege boundary skipped on plugin configuration, leading to RCE"
     post: pyload-plugin-config-rce
 
-pending:
-  - class: missing authentication
-    cwe: CWE-306
+  - cve: null
+    ghsa: GHSA-rg3r-jprv-xq38
+    project: Homepage
+    repo: gethomepage/homepage
     severity: medium
-    submitted: 2026-04-17
-    note: "advisory submitted, awaiting publication"
+    cvss: 4.3
+    cwe: CWE-22
+    date: 2026-04-01
+    fixed_in: 1.12.3
+    title: "Path traversal in the Glances widget, with credentials attached"
+    post: homepage-glances-traversal
+
+  - cve: CVE-2026-34758
+    ghsa: GHSA-q253-6wcm-h8hp
+    project: OneUptime
+    repo: OneUptime/oneuptime
+    severity: critical
+    cvss: 9.1
+    cwe: CWE-306
+    date: 2026-03-30
+    fixed_in: 10.0.40
+    title: "Notification test endpoints with no authentication at all"
+    post: oneuptime-unauth-notifications
+
+  - cve: CVE-2026-34745
+    ghsa: GHSA-fvvp-rj8g-c7gc
+    project: Fireshare
+    repo: ShaneIsrael/fireshare
+    severity: critical
+    cvss: 9.1
+    cwe: CWE-22
+    date: 2026-03-30
+    fixed_in: 1.5.3
+    title: "The patched endpoint's unauthenticated twin"
+    post: fireshare-public-upload-traversal
+
+  - cve: CVE-2026-34586
+    ghsa: GHSA-vfqx-2464-38wf
+    project: PdfDing
+    repo: mrmn2/PdfDing
+    severity: medium
+    cvss: 6.5
+    cwe: CWE-863
+    date: 2026-03-30
+    fixed_in: v1.7.1
+    title: "Expired, view-capped and deleted shares that still served the file"
+    post: pdfding-share-revocation
+
+# Everything else credited to axel-corsiez but not public.
+# Counts only: naming a project here would announce an unfixed issue in it.
+pipeline:
+  total_credited: 53
+  awaiting_publication: 17   # under maintainer review or drafted
+  closed_unpublished: 25     # closed without an advisory: declined, duplicate, or fixed silently
