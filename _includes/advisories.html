@@ -35,7 +35,7 @@
       </td>
       <td class="c-proj">{{ a.project }}</td>
       <td class="c-title">
-        {% if linked %}<a href="{{ linked.url | relative_url }}">{{ a.title }}</a>
+        {% if linked %}<a href="{{ linked.url | relative_url }}">{{ a.title }} <span class="has-post">&rarr;</span></a>
         {% else %}<span class="nolink">{{ a.title }} <em>({{ t_nopost }})</em></span>{% endif %}
       </td>
       <td class="c-sev sev-{{ a.severity }}">{{ a.severity }}{% if a.cvss %} {{ a.cvss }}{% endif %}</td>

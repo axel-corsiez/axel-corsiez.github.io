@@ -24,20 +24,22 @@ alt_url: /fr/
   </ul>
 </section>
 
-<div class="dash">
-  <section class="list">
-    {% include advisories.html lang="en" %}
-  </section>
+<section class="list">
+  {% include advisories.html lang="en" %}
+</section>
 
-  <section class="list">
-    {% include projects.html lang="en" %}
-  </section>
-</div>
+<section class="list">
+  {% include projects.html lang="en" %}
+</section>
 
 <section class="list">
   <h2 class="list-title">articles</h2>
+  <p class="list-note">The CVE write-ups are linked from the advisory table above, one per row.</p>
 
-  {% assign posts = site.posts | where: 'lang', 'en' %}
+  {% assign cve_refs = site.data.cve.published | map: 'post' %}
+  {% assign all = site.posts | where: 'lang', 'en' %}
+  {% assign posts = '' | split: '' %}
+  {% for p in all %}{% unless cve_refs contains p.ref %}{% assign posts = posts | push: p %}{% endunless %}{% endfor %}
   {% if posts.size > 0 %}
     {% for post in posts %}
     <a class="entry" href="{{ post.url | relative_url }}">
