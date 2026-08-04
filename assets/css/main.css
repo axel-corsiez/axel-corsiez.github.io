@@ -305,7 +305,11 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 
 .prose table {
-  width: 100%;
+  /* scrolls inside its own box on narrow screens instead of widening the page */
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
   border-collapse: collapse;
   margin: 0 0 1.4rem;
   font-size: 0.9rem;
@@ -335,6 +339,87 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   font-family: var(--mono);
   font-size: 0.85rem;
 }
+
+/* ---------- table of contents ---------- */
+
+.toc-wrap {
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--acc-deep);
+  background: var(--bg-panel);
+  padding: 1.1rem 1.35rem 1.25rem;
+  margin: 0 0 2.5rem;
+}
+.toc-wrap .toc-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.7rem;
+}
+#markdown-toc {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+#markdown-toc li { margin: 0; }
+#markdown-toc li::marker { content: "› "; color: var(--acc-deep); }
+#markdown-toc a { color: var(--text-dim); }
+#markdown-toc a:hover { color: var(--acc); text-decoration: none; }
+#markdown-toc ul {
+  padding-left: 1.1rem;
+  margin: 0.1rem 0 0.3rem;
+  font-size: 0.95em;
+}
+
+/* ---------- figures / diagrams ---------- */
+
+.fig {
+  margin: 2.25rem 0;
+  padding: 0;
+}
+.fig-frame {
+  border: 1px solid var(--line);
+  background: var(--bg-panel);
+  padding: 1.25rem 1rem;
+  overflow-x: auto;
+}
+.fig svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-width: 30rem;
+  margin: 0 auto;
+}
+.fig figcaption {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--text-dim);
+  letter-spacing: 0.02em;
+  margin-top: 0.7rem;
+  line-height: 1.6;
+}
+.fig figcaption b {
+  color: var(--acc-deep);
+  font-weight: 600;
+  margin-right: 0.4rem;
+}
+
+/* svg internals */
+.d-box   { fill: #12171f; stroke: #253040; stroke-width: 1; }
+.d-box-a { fill: #10201a; stroke: #2ea86a; stroke-width: 1; }
+.d-box-d { fill: #12171f; stroke: #253040; stroke-width: 1; stroke-dasharray: 3 3; }
+.d-t     { fill: #c9d4e2; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
+.d-t-s   { fill: #78849a; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; }
+.d-t-a   { fill: #57f287; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
+.d-t-n   { fill: #57f287; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; }
+.d-line  { stroke: #2f3d4f; stroke-width: 1.2; fill: none; }
+.d-line-a{ stroke: #2ea86a; stroke-width: 1.2; fill: none; }
+.d-fill-a{ fill: #2ea86a; }
+.d-fill-l{ fill: #2f3d4f; }
 
 /* ---------- callout ---------- */
 
