@@ -30,6 +30,12 @@ interface never calls, and access-control testing driven with two controlled ide
 authorisation gap is demonstrated rather than asserted. In scope, on programs that authorise it,
 never with another user's data.
 
+I am new to the platforms and I will say so plainly: reports submitted, duplicates so far, no
+validated one yet. A duplicate is the platform confirming the bug was real and that somebody
+reached it first, which is the ordinary first chapter and a reasonable calibration signal. The
+advisories above are where the same reading has already landed, and the gap between the two is
+the target surface, not the method.
+
 **Tooling.** I built the pipeline that makes the above possible at scale rather than one
 repository at a time, and I write about how it works and where it fails.
 
