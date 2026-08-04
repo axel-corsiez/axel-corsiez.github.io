@@ -159,8 +159,12 @@ stats:
 
 # Everything else credited to axel-corsiez but not public.
 # Counts only: naming a project here would announce an unfixed issue in it.
+# Counted from credits_detailed across the audited repositories, 2026-08-04.
+# 53 advisories list me at all; only 37 of those credits are accepted by the
+# maintainer. 15 are still pending and 1 was declined, so 37 is the figure to quote.
 pipeline:
-  total_credited: 53
+  accepted_credits: 37       # maintainer confirmed the credit
+  listed_total: 53           # raw count, includes 15 pending and 1 declined
   awaiting_publication: 17   # under maintainer review or drafted
   closed_unpublished: 25     # closed without an advisory: declined, duplicate, or fixed silently
 

@@ -47,7 +47,7 @@
 {% if pl %}
 <p class="embargo">
 {% if L == 'fr' %}
-  <b>{{ pl.total_credited }}</b> avis au total me créditent sur ces projets.
+  <b>{{ pl.accepted_credits }}</b> avis me créditent avec un crédit accepté par le mainteneur ({{ pl.listed_total }} me listent en tout, dont {{ pl.listed_total | minus: pl.accepted_credits }} en attente ou refusés).
   <br>&rsaquo; <b>{{ published_n }}</b> publiés, listés ci-dessus
   <br>&rsaquo; <b>{{ pl.awaiting_publication }}</b> soumis, en cours de relecture ou de rédaction chez le mainteneur
   <br>&rsaquo; <b>{{ pl.closed_unpublished }}</b> clos sans avis public : refusés, doublons, ou corrigés en silence
@@ -57,7 +57,7 @@
   <br><span class="dim">{{ v.cve_status }}. {{ v.credit }}.</span>
 {% endfor %}
 {% else %}
-  <b>{{ pl.total_credited }}</b> advisories across these projects credit me.
+  <b>{{ pl.accepted_credits }}</b> advisories credit me with the credit accepted by the maintainer ({{ pl.listed_total }} list me in total, {{ pl.listed_total | minus: pl.accepted_credits }} of those still pending or declined).
   <br>&rsaquo; <b>{{ published_n }}</b> published, listed above
   <br>&rsaquo; <b>{{ pl.awaiting_publication }}</b> submitted, in maintainer review or drafting
   <br>&rsaquo; <b>{{ pl.closed_unpublished }}</b> closed without a public advisory: declined, duplicate, or fixed silently
