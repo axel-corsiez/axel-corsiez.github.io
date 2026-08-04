@@ -4,6 +4,8 @@ title: "Hunting CVEs at scale: notes from auditing 83 open-source projects"
 summary: "Why I stopped reading code looking for bugs, and started looking for bug-shaped code instead. The architecture of a research pipeline, and what it actually returns."
 reading_time: "16 min"
 tags: [vulnerability-research, tooling, static-analysis, methodology]
+lang: en
+ref: cve-pipeline
 ---
 
 Reading one codebase properly takes days. Reading eighty takes a year you do not have.

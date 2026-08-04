@@ -19,6 +19,15 @@
   --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
 
   --wrap: 46rem;
+
+  /* derives, so a theme only has to redefine the block above */
+  --glow:      rgba(87,242,135,0.35);
+  --head-bg:   rgba(10,12,16,0.9);
+  --d-box-bg:  #12171f;
+  --d-box-br:  #253040;
+  --d-box-abg: #10201a;
+  --d-line:    #2f3d4f;
+  --strong:    #e6edf6;
 }
 
 * { box-sizing: border-box; }
@@ -76,7 +85,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   position: relative;
   z-index: 2;
   border-bottom: 1px solid var(--line);
-  background: rgba(10,12,16,0.9);
+  background: var(--head-bg);
   backdrop-filter: blur(6px);
 }
 .site-head .wrap {
@@ -96,7 +105,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   color: var(--text);
 }
 .brand:hover { text-decoration: none; }
-.brand-prompt { color: var(--acc); text-shadow: 0 0 12px rgba(87,242,135,0.35); }
+.brand-prompt { color: var(--acc); text-shadow: 0 0 12px var(--glow); }
 .brand-sep, .brand-path { color: var(--text-dim); }
 .brand-caret { color: var(--text-dim); margin-left: 0.35rem; }
 .brand-caret::after {
@@ -113,6 +122,21 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 .site-nav a { color: var(--text-dim); }
 .site-nav a:hover { color: var(--acc); text-decoration: none; }
+
+.lang-switch {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--line);
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+.lang-cur { color: var(--acc); }
+.lang-sep { color: var(--line); }
+.lang-switch a { color: var(--text-dim); }
+.lang-switch a:hover { color: var(--acc); text-decoration: none; }
 
 /* ---------- home ---------- */
 
@@ -264,7 +288,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .prose li { margin-bottom: 0.4rem; }
 .prose li::marker { color: var(--acc-deep); }
 
-.prose strong { color: #e6edf6; font-weight: 600; }
+.prose strong { color: var(--strong); font-weight: 600; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -409,17 +433,17 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 
 /* svg internals */
-.d-box   { fill: #12171f; stroke: #253040; stroke-width: 1; }
-.d-box-a { fill: #10201a; stroke: #2ea86a; stroke-width: 1; }
-.d-box-d { fill: #12171f; stroke: #253040; stroke-width: 1; stroke-dasharray: 3 3; }
-.d-t     { fill: #c9d4e2; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
-.d-t-s   { fill: #78849a; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; }
-.d-t-a   { fill: #57f287; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
-.d-t-n   { fill: #57f287; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; }
-.d-line  { stroke: #2f3d4f; stroke-width: 1.2; fill: none; }
-.d-line-a{ stroke: #2ea86a; stroke-width: 1.2; fill: none; }
-.d-fill-a{ fill: #2ea86a; }
-.d-fill-l{ fill: #2f3d4f; }
+.d-box   { fill: var(--d-box-bg); stroke: var(--d-box-br); stroke-width: 1; }
+.d-box-a { fill: var(--d-box-abg); stroke: var(--acc-deep); stroke-width: 1; }
+.d-box-d { fill: var(--d-box-bg); stroke: var(--d-box-br); stroke-width: 1; stroke-dasharray: 3 3; }
+.d-t     { fill: var(--text); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
+.d-t-s   { fill: var(--text-dim); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; }
+.d-t-a   { fill: var(--acc); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
+.d-t-n   { fill: var(--acc); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; }
+.d-line  { stroke: var(--d-line); stroke-width: 1.2; fill: none; }
+.d-line-a{ stroke: var(--acc-deep); stroke-width: 1.2; fill: none; }
+.d-fill-a{ fill: var(--acc-deep); }
+.d-fill-l{ fill: var(--d-line); }
 
 /* ---------- callout ---------- */
 

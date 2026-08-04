@@ -1,27 +1,28 @@
 ---
 layout: default
-lang: en
-alt_url: /fr/
+lang: fr
+permalink: /fr/
+alt_url: /
 ---
 
 <section class="hero">
-  <h1>Finding bugs in software<br>that <span class="accent">everybody</span> runs.</h1>
+  <h1>Trouver des failles dans<br>les logiciels que <span class="accent">tout le monde</span> exécute.</h1>
   <p>
-    Offensive security research: vulnerability hunting in open-source projects,
-    the tooling built to do it at scale, and notes from the field. Everything here is
-    disclosed responsibly, and nothing unpatched gets published.
+    Sécurité offensive : recherche de vulnérabilités dans des projets open source,
+    l'outillage construit pour le faire à l'échelle, et des notes de terrain. Tout est
+    divulgué de façon coordonnée, et rien de non corrigé n'est publié ici.
   </p>
   <ul class="stats">
-    <li><b>83</b> projects audited</li>
-    <li><b>35</b> written reports</li>
-    <li><b>17</b> vulnerability classes modelled</li>
+    <li><b>83</b> projets audités</li>
+    <li><b>35</b> rapports rédigés</li>
+    <li><b>17</b> classes de vulnérabilités modélisées</li>
   </ul>
 </section>
 
 <section class="list">
   <h2 class="list-title">articles</h2>
 
-  {% assign posts = site.posts | where: 'lang', 'en' %}
+  {% assign posts = site.posts | where: 'lang', 'fr' %}
   {% if posts.size > 0 %}
     {% for post in posts %}
     <a class="entry" href="{{ post.url | relative_url }}">
@@ -37,6 +38,6 @@ alt_url: /fr/
     </a>
     {% endfor %}
   {% else %}
-    <p class="empty">no articles yet. check back.</p>
+    <p class="empty">aucun article pour le moment.</p>
   {% endif %}
 </section>

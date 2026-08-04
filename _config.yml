@@ -17,6 +17,12 @@ kramdown:
   syntax_highlighter: rouge
   hard_wrap: false
 
+defaults:
+  - scope: { path: "" }
+    values: { lang: "en" }
+  - scope: { path: "fr" }
+    values: { lang: "fr" }
+
 exclude:
   - README.md
   - Gemfile

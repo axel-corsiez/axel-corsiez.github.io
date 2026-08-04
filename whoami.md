@@ -2,6 +2,8 @@
 layout: post
 title: "whoami"
 permalink: /whoami/
+lang: en
+alt_url: /fr/whoami/
 ---
 
 Offensive security. Mostly vulnerability research on open-source software: reading code,
