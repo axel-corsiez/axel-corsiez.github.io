@@ -177,6 +177,39 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   letter-spacing: -0.02em;
 }
 
+/* ---------- advisory table ---------- */
+
+.adv { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 0 0 0.6rem; }
+.adv th {
+  font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--text-dim); font-weight: 500; text-align: left;
+  padding: 0 0.7rem 0.5rem 0; border-bottom: 1px solid var(--line);
+}
+.adv td { padding: 0.6rem 0.7rem 0.6rem 0; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+.adv tr:last-child td { border-bottom: 0; }
+.adv .c-id { font-family: var(--mono); font-size: 0.78rem; white-space: nowrap; }
+.adv .c-proj { font-family: var(--mono); font-size: 0.82rem; color: var(--text); }
+.adv .c-title a { color: var(--text); }
+.adv .c-title a:hover { color: var(--acc); text-decoration: none; }
+.adv .c-title .nolink { color: var(--text-dim); }
+.adv .c-sev { font-family: var(--mono); font-size: 0.72rem; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.05em; }
+.sev-critical { color: var(--crit); }
+.sev-high     { color: var(--warn); }
+.sev-medium   { color: var(--acc); }
+.sev-low      { color: var(--text-dim); }
+.adv .c-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); white-space: nowrap; }
+.adv-scroll { overflow-x: auto; margin-bottom: 0.9rem; }
+
+.embargo {
+  border: 1px dashed var(--line);
+  padding: 0.9rem 1.05rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+.embargo b { color: var(--acc); font-weight: 400; }
+
 /* ---------- article list ---------- */
 
 .list { position: relative; z-index: 2; padding: 2.5rem 0 3rem; }

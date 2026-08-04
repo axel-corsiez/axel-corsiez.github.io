@@ -1,0 +1,50 @@
+{% assign L = include.lang | default: 'en' %}
+{% if L == 'fr' %}
+  {% assign t_head = 'avis publiés' %}
+  {% assign h_id = 'cve' %}{% assign h_proj = 'projet' %}{% assign h_what = 'ce que c\'était' %}
+  {% assign h_sev = 'sév.' %}{% assign h_date = 'publié' %}
+  {% assign t_pending = 'en cours de divulgation' %}
+  {% assign t_nopost = 'pas encore rédigé' %}
+{% else %}
+  {% assign t_head = 'published advisories' %}
+  {% assign h_id = 'cve' %}{% assign h_proj = 'project' %}{% assign h_what = 'what it was' %}
+  {% assign h_sev = 'sev.' %}{% assign h_date = 'published' %}
+  {% assign t_pending = 'under coordinated disclosure' %}
+  {% assign t_nopost = 'write-up pending' %}
+{% endif %}
+
+<h2 class="list-title">{{ t_head }}</h2>
+
+<div class="adv-scroll">
+<table class="adv">
+  <thead>
+    <tr>
+      <th>{{ h_id }}</th><th>{{ h_proj }}</th><th>{{ h_what }}</th><th>{{ h_sev }}</th><th>{{ h_date }}</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for a in site.data.cve.published %}
+    {% assign linked = site.posts | where: 'ref', a.post | where: 'lang', L | first %}
+    {% if linked == nil %}{% assign linked = site.posts | where: 'ref', a.post | first %}{% endif %}
+    <tr>
+      <td class="c-id"><a href="https://github.com/advisories/{{ a.ghsa }}" rel="noopener">{{ a.cve }}</a></td>
+      <td class="c-proj">{{ a.project }}</td>
+      <td class="c-title">
+        {% if linked %}<a href="{{ linked.url | relative_url }}">{{ a.title }}</a>
+        {% else %}<span class="nolink">{{ a.title }} <em>({{ t_nopost }})</em></span>{% endif %}
+      </td>
+      <td class="c-sev sev-{{ a.severity }}">{{ a.severity }}{% if a.cvss %} {{ a.cvss }}{% endif %}</td>
+      <td class="c-meta">{{ a.date }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% if site.data.cve.pending and site.data.cve.pending.size > 0 %}
+<p class="embargo">
+  <b>{{ site.data.cve.pending.size }}</b> {{ t_pending }}.
+  {% for p in site.data.cve.pending %}<br>
+  &rsaquo; {{ p.class }} · {{ p.cwe }} · {{ p.severity }} · {{ p.note }}{% endfor %}
+</p>
+{% endif %}
