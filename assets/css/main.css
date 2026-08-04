@@ -177,6 +177,67 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   letter-spacing: -0.02em;
 }
 
+/* ---------- projects ---------- */
+
+.proj {
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--line);
+  background: var(--bg-panel);
+  padding: 1.3rem 1.4rem;
+  margin-bottom: 1rem;
+}
+.proj.is-flagship { border-left-color: var(--acc); }
+
+.proj-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 0.8rem; margin-bottom: 0.15rem; }
+.proj-name {
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  color: var(--acc);
+  margin: 0;
+}
+.proj-flags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.proj-flag {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border: 1px solid var(--line);
+  padding: 0.1rem 0.45rem;
+  border-radius: 2px;
+}
+.proj-flag.is-private { color: var(--warn); border-color: var(--warn); }
+
+.proj-lead { margin: 0.5rem 0 0.8rem; color: var(--text); font-size: 0.97rem; }
+.proj-body { margin: 0 0 0.9rem; color: var(--text-dim); font-size: 0.92rem; }
+.proj-foot {
+  display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; align-items: baseline;
+  font-family: var(--mono); font-size: 0.74rem; color: var(--text-dim);
+  border-top: 1px solid var(--line-soft); padding-top: 0.75rem;
+}
+.proj-outcome { color: var(--acc); }
+.proj-stack { color: var(--text-dim); }
+
+/* ---------- contact ---------- */
+
+.contact { display: flex; flex-wrap: wrap; gap: 0.5rem 1.6rem; margin: 1.2rem 0 0; padding: 0; list-style: none;
+           font-family: var(--mono); font-size: 0.82rem; }
+.contact li { color: var(--text-dim); }
+.contact b { color: var(--text-dim); font-weight: 400; margin-right: 0.4rem; }
+
+.avail {
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--acc);
+  background: var(--bg-panel);
+  padding: 0.85rem 1.05rem;
+  margin: 1.5rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+.avail b { color: var(--acc); font-weight: 400; }
+
 /* ---------- advisory table ---------- */
 
 .adv { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 0 0 0.6rem; }

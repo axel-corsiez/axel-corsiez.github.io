@@ -1,0 +1,35 @@
+{% assign L = include.lang | default: 'en' %}
+{% if L == 'fr' %}
+  {% assign t_head = 'projets' %}{% assign t_priv = 'privé' %}{% assign t_more = 'lire le fonctionnement' %}
+{% else %}
+  {% assign t_head = 'projects' %}{% assign t_priv = 'private' %}{% assign t_more = 'how it works' %}
+{% endif %}
+
+<h2 class="list-title">{{ t_head }}</h2>
+
+{% for p in site.data.projects %}
+<article class="proj{% if p.flagship %} is-flagship{% endif %}">
+  <div class="proj-head">
+    <h3 class="proj-name">{{ p.name }}</h3>
+    <span class="proj-flags">
+      {% if p.private %}<span class="proj-flag is-private">{{ t_priv }}</span>{% endif %}
+      {% if p.status %}<span class="proj-flag">{{ p.status }}</span>{% endif %}
+    </span>
+  </div>
+
+  <p class="proj-lead">{% if L == 'fr' %}{{ p.one_liner_fr }}{% else %}{{ p.one_liner_en }}{% endif %}</p>
+  <p class="proj-body">{% if L == 'fr' %}{{ p.body_fr }}{% else %}{{ p.body_en }}{% endif %}</p>
+
+  <div class="proj-foot">
+    {% assign outcome = p.outcome_en %}{% if L == 'fr' %}{% assign outcome = p.outcome_fr %}{% endif %}
+    {% if outcome %}<span class="proj-outcome">{{ outcome }}</span>{% endif %}
+    {% if p.stack %}<span class="proj-stack">{{ p.stack | join: " · " }}</span>{% endif %}
+    {% if p.read_more %}
+      {% assign wr = site.posts | where: 'ref', p.read_more | where: 'lang', L | first %}
+      {% if wr == nil %}{% assign wr = site.posts | where: 'ref', p.read_more | first %}{% endif %}
+      {% if wr %}<a href="{{ wr.url | relative_url }}">{{ t_more }} &rarr;</a>{% endif %}
+    {% endif %}
+    {% if p.repo %}<a href="https://github.com/{{ p.repo }}" rel="noopener">github &rarr;</a>{% endif %}
+  </div>
+</article>
+{% endfor %}

@@ -6,11 +6,11 @@ alt_url: /
 ---
 
 <section class="hero">
-  <h1>Trouver des failles dans<br>les logiciels que <span class="accent">tout le monde</span> exécute.</h1>
+  <h1>Je trouve des failles dans<br>les logiciels que <span class="accent">tout le monde</span> exécute.</h1>
   <p>
-    Sécurité offensive : recherche de vulnérabilités dans des projets open source,
-    l'outillage construit pour le faire à l'échelle, et des notes de terrain. Tout est
-    divulgué de façon coordonnée, et rien de non corrigé n'est publié ici.
+    Chercheur en sécurité offensive. J'audite du code open source, je construis l'outillage qui
+    rend cet audit possible à l'échelle, et je remonte ce qui en sort à ceux qui maintiennent le
+    projet. Tout ce qui suit est divulgué de façon coordonnée : rien de non corrigé n'est nommé ici.
   </p>
   <ul class="stats">
     <li><b>{{ site.data.cve.published | size }}</b> avis publiés</li>
@@ -22,6 +22,10 @@ alt_url: /
 
 <section class="list">
   {% include advisories.html lang="fr" %}
+</section>
+
+<section class="list">
+  {% include projects.html lang="fr" %}
 </section>
 
 <section class="list">

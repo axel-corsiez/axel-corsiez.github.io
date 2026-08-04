@@ -1,0 +1,28 @@
+# Projects shown on the home page.
+#
+# private: true  => no link is rendered. The description is the deliverable.
+# Only list work actually authored here. Forks of other people's projects
+# (T3MP3ST, traefik, reGeorg) are not projects and must not appear.
+
+- name: CVE-RESEARCHER
+  flagship: true
+  private: true
+  status: active
+  stack: [Python, static analysis, taint tracking]
+  one_liner_en: "A research pipeline that turns a corpus of repositories into a short, ranked list of candidates worth a human's time."
+  one_liner_fr: "Un pipeline de recherche qui transforme un corpus de dépôts en une liste courte et classée de candidats qui méritent un humain."
+  body_en: >-
+    Three engines feed one shortlist: a diff-first scan that reads recent security commits and
+    hunts the unpatched siblings of what was just fixed, a knowledge base of 22 modelled
+    vulnerability classes routed by target type, and a taint engine that grades how well each
+    flow is proven rather than emitting a boolean. Candidates are deduplicated against public
+    advisory databases before any human or model looks at them.
+  body_fr: >-
+    Trois moteurs alimentent une seule liste courte : un scan par le diff qui lit les commits de
+    sécurité récents et chasse les jumeaux non corrigés de ce qui vient d'être patché, une base
+    de 22 classes de vulnérabilités modélisées et routées par type de cible, et un moteur de
+    taint qui note la force de preuve de chaque flux au lieu de rendre un booléen. Les candidats
+    sont dédupliqués face aux bases d'avis publiques avant qu'un humain ou un modèle les regarde.
+  outcome_en: "82 projects processed, 35 written reports, 11 published advisories."
+  outcome_fr: "82 projets traités, 35 rapports rédigés, 11 avis publiés."
+  read_more: cve-pipeline   # ref of the write-up
