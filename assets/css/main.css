@@ -257,6 +257,23 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .proj-outcome { color: var(--acc); }
 .proj-stack { color: var(--text-dim); }
 
+.certs { list-style: none; margin: 1rem 0 0; padding: 0; }
+.certs li {
+  display: flex; align-items: baseline; gap: 0.7rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--acc);
+  background: var(--bg-panel);
+  margin-bottom: 0.5rem;
+  font-size: 0.92rem;
+}
+.certs b {
+  font-family: var(--mono); font-weight: 600;
+  color: var(--acc); letter-spacing: 0.03em;
+  min-width: 3.6rem;
+}
+.certs .dim { font-family: var(--mono); font-size: 0.76rem; }
+
 /* ---------- contact ---------- */
 
 .contact { display: flex; flex-wrap: wrap; gap: 0.5rem 1.6rem; margin: 1.2rem 0 0; padding: 0; list-style: none;

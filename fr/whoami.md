@@ -33,18 +33,19 @@ d'accès mené avec deux identités contrôlées, pour qu'une faille d'autorisat
 non affirmée. Dans le périmètre, sur des programmes qui l'autorisent, jamais avec les données
 d'un autre utilisateur.
 
-Je débute sur les plateformes et je le dis franchement : des rapports soumis, des duplicates
-jusqu'ici, aucun validé pour l'instant. Un duplicate, c'est la plateforme qui confirme que le bug
-était réel et que quelqu'un l'a atteint avant moi ; c'est le premier chapitre ordinaire et un
-signal de calibrage raisonnable. Les avis plus haut sont l'endroit où la même lecture a déjà
-abouti, et ce qui sépare les deux, c'est la surface visée, pas la méthode.
-
 **Outillage.** J'ai construit le pipeline qui rend tout ça possible à l'échelle plutôt qu'un
 dépôt à la fois, et j'écris sur son fonctionnement comme sur ses limites.
 
 **Sécurité des applications web.** Contrôle d'accès, falsification de requête côté serveur,
 injection, authentification et gestion de session. C'est là que tombe la majorité de mes
 découvertes.
+
+## Certifications
+
+<ul class="certs">
+  <li><b>OSCP</b>OffSec Certified Professional <span class="dim">(PEN-200)</span></li>
+  <li><b>OSWA</b>OffSec Web Assessor <span class="dim">(WEB-200)</span></li>
+</ul>
 
 ## Pourquoi l'open source
 
