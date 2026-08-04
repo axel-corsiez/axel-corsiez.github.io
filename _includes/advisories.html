@@ -3,13 +3,13 @@
 {% if L == 'fr' %}
   {% assign t_head = 'avis publiés' %}
   {% assign h_id = 'cve' %}{% assign h_proj = 'projet' %}{% assign h_what = 'ce que c\'était' %}
-  {% assign h_sev = 'sév.' %}{% assign h_date = 'publié' %}
+  {% assign h_sev = 'sév.' %}{% assign h_date = 'publié' %}{% assign h_fix = 'corrigé dans' %}
   {% assign t_pending = 'en cours de divulgation' %}
   {% assign t_nopost = 'pas encore rédigé' %}
 {% else %}
   {% assign t_head = 'published advisories' %}
   {% assign h_id = 'cve' %}{% assign h_proj = 'project' %}{% assign h_what = 'what it was' %}
-  {% assign h_sev = 'sev.' %}{% assign h_date = 'published' %}
+  {% assign h_sev = 'sev.' %}{% assign h_date = 'published' %}{% assign h_fix = 'fixed in' %}
   {% assign t_pending = 'under coordinated disclosure' %}
   {% assign t_nopost = 'write-up pending' %}
 {% endif %}
@@ -20,7 +20,7 @@
 <table class="adv">
   <thead>
     <tr>
-      <th>{{ h_id }}</th><th>{{ h_proj }}</th><th>{{ h_what }}</th><th>{{ h_sev }}</th><th>{{ h_date }}</th>
+      <th>{{ h_id }}</th><th>{{ h_proj }}</th><th>{{ h_what }}</th><th>{{ h_sev }}</th><th>{{ h_fix }}</th>
     </tr>
   </thead>
   <tbody>
@@ -29,19 +29,34 @@
     {% if linked == nil %}{% assign linked = site.posts | where: 'ref', a.post | first %}{% endif %}
     <tr>
       {% if a.global_db %}{% assign adv_url = "https://github.com/advisories/" | append: a.ghsa %}{% else %}{% assign adv_url = "https://github.com/" | append: a.repo | append: "/security/advisories/" | append: a.ghsa %}{% endif %}
-      <td class="c-id"><a href="{{ adv_url }}" rel="noopener">{% if a.cve %}{{ a.cve }}{% else %}{{ a.ghsa }}{% endif %}</a></td>
+      <td class="c-id">
+        <a href="{{ adv_url }}" rel="noopener">{% if a.cve %}{{ a.cve }}{% else %}{{ a.ghsa }}{% endif %}</a>
+        <span class="c-date">{{ a.date }}</span>
+      </td>
       <td class="c-proj">{{ a.project }}</td>
       <td class="c-title">
         {% if linked %}<a href="{{ linked.url | relative_url }}">{{ a.title }}</a>
         {% else %}<span class="nolink">{{ a.title }} <em>({{ t_nopost }})</em></span>{% endif %}
       </td>
       <td class="c-sev sev-{{ a.severity }}">{{ a.severity }}{% if a.cvss %} {{ a.cvss }}{% endif %}</td>
-      <td class="c-meta">{{ a.date }}</td>
+      <td class="c-meta c-fix">{% if a.fixed_in %}{{ a.fixed_in }}{% else %}&mdash;{% endif %}</td>
     </tr>
   {% endfor %}
   </tbody>
 </table>
 </div>
+
+{% assign fixed_n = 0 %}{% for a in site.data.cve.published %}{% if a.fixed_in %}{% assign fixed_n = fixed_n | plus: 1 %}{% endif %}{% endfor %}
+<p class="impact">
+{% if L == 'fr' %}
+  Ces onze avis ont donné lieu à <b>{{ fixed_n }} versions correctives</b> livrées par leurs
+  mainteneurs. Ce sont des logiciels que des gens auto-hébergent : dès que la release sort,
+  chaque déploiement peut se corriger.
+{% else %}
+  These eleven advisories produced <b>{{ fixed_n }} fixed releases</b> shipped by their
+  maintainers. This is self-hosted software: once the release is out, every deployment can patch.
+{% endif %}
+</p>
 
 {% assign pl = site.data.cve.pipeline %}
 {% if pl %}

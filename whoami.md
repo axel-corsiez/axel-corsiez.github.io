@@ -24,11 +24,28 @@ published fixes, and coordinated disclosure. Eleven published advisories to date
 authentication bypass, unauthenticated path traversal, SSRF, cross-tenant authorisation and
 command execution. They are listed with their write-ups on [the index]({{ '/' | relative_url }}).
 
+**Bug bounty on live targets.** Same reflexes, different visibility: no source, only what the
+target exposes. Recon and attack-surface mapping, JavaScript bundle mining for endpoints the
+interface never calls, and access-control testing driven with two controlled identities so an
+authorisation gap is demonstrated rather than asserted. In scope, on programs that authorise it,
+never with another user's data.
+
 **Tooling.** I built the pipeline that makes the above possible at scale rather than one
 repository at a time, and I write about how it works and where it fails.
 
 **Web application security.** Access control, server-side request forgery, injection,
 authentication and session handling. This is where most of my findings land.
+
+## Why open source
+
+The software people self-host is maintained by teams of two or three. They are good engineers
+and they are not security engineers, they have no budget for an audit, and the projects are big
+enough that nobody holds the whole thing in their head. Meanwhile the code runs the internal
+tooling of companies that would never ship it themselves.
+
+That gap is where I work. Eleven advisories, ten fixed releases shipped by their maintainers,
+all of it free for the project and permanent for every deployment that updates. It is the
+highest-leverage security work I know of, and the reason none of it is behind a paywall here.
 
 ## How I work
 

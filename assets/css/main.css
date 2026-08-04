@@ -158,6 +158,16 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   color: var(--text-dim);
 }
 
+.creed {
+  margin: 0.9rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  border-left: 2px solid var(--acc-deep);
+  padding-left: 0.8rem;
+  max-width: 40rem;
+}
+
 .stats {
   display: flex;
   flex-wrap: wrap;
@@ -176,6 +186,15 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   color: var(--acc);
   letter-spacing: -0.02em;
 }
+
+.impact {
+  margin: 0 0 1.2rem;
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  border-left: 2px solid var(--acc-deep);
+  padding-left: 0.9rem;
+}
+.impact b { color: var(--acc); font-weight: 400; }
 
 /* ---------- projects ---------- */
 
@@ -250,6 +269,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .adv td { padding: 0.6rem 0.7rem 0.6rem 0; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
 .adv tr:last-child td { border-bottom: 0; }
 .adv .c-id { font-family: var(--mono); font-size: 0.78rem; white-space: nowrap; }
+.adv .c-date { display: block; font-size: 0.68rem; color: var(--text-dim); margin-top: 0.15rem; }
+.adv .c-title { min-width: 13rem; }
 .adv .c-proj { font-family: var(--mono); font-size: 0.82rem; color: var(--text); }
 .adv .c-title a { color: var(--text); }
 .adv .c-title a:hover { color: var(--acc); text-decoration: none; }
@@ -259,6 +280,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .sev-high     { color: var(--warn); }
 .sev-medium   { color: var(--acc); }
 .sev-low      { color: var(--text-dim); }
+.adv .c-fix { color: var(--acc-deep); white-space: normal; word-break: break-word; max-width: 6.5rem; }
 .adv .c-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); white-space: nowrap; }
 .adv-scroll { overflow-x: auto; margin-bottom: 0.9rem; }
 
@@ -610,7 +632,17 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   .winbar { font-size: 0.68rem; }
   .win { padding: 0 0.7rem; }
   .hero { padding: 2.5rem 0 2rem; }
-  .stats { gap: 0.75rem 1.5rem; }
+  .creed {
+  margin: 0.9rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  border-left: 2px solid var(--acc-deep);
+  padding-left: 0.8rem;
+  max-width: 40rem;
+}
+
+.stats { gap: 0.75rem 1.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

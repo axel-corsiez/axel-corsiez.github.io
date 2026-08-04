@@ -26,12 +26,32 @@ couvrant le contournement d'authentification, la traversée de chemin non authen
 l'autorisation inter-locataires et l'exécution de commande. Ils sont listés avec leurs articles
 sur [l'accueil]({{ '/fr/' | relative_url }}).
 
+**Bug bounty sur cibles vivantes.** Les mêmes réflexes, une visibilité différente : pas de code
+source, seulement ce que la cible expose. Recon et cartographie de surface d'attaque, minage des
+bundles JavaScript pour les endpoints que l'interface n'appelle jamais, et test de contrôle
+d'accès mené avec deux identités contrôlées, pour qu'une faille d'autorisation soit démontrée et
+non affirmée. Dans le périmètre, sur des programmes qui l'autorisent, jamais avec les données
+d'un autre utilisateur.
+
 **Outillage.** J'ai construit le pipeline qui rend tout ça possible à l'échelle plutôt qu'un
 dépôt à la fois, et j'écris sur son fonctionnement comme sur ses limites.
 
 **Sécurité des applications web.** Contrôle d'accès, falsification de requête côté serveur,
 injection, authentification et gestion de session. C'est là que tombe la majorité de mes
 découvertes.
+
+## Pourquoi l'open source
+
+Les logiciels que les gens auto-hébergent sont maintenus par des équipes de deux ou trois. Ce
+sont de bons ingénieurs, ce ne sont pas des ingénieurs sécurité, ils n'ont pas de budget d'audit,
+et les projets sont assez gros pour que personne n'en tienne la totalité en tête. Pendant ce
+temps, ce code fait tourner l'outillage interne d'entreprises qui ne le publieraient jamais
+elles-mêmes.
+
+C'est dans cet écart que je travaille. Onze avis, dix versions correctives livrées par leurs
+mainteneurs, le tout gratuit pour le projet et permanent pour chaque déploiement qui se met à
+jour. C'est le travail de sécurité au meilleur effet de levier que je connaisse, et la raison
+pour laquelle rien de tout ça n'est derrière un paywall ici.
 
 ## Comment je travaille
 

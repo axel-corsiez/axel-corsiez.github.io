@@ -76,3 +76,24 @@
     que la surface nouvelle soit repérée quand elle apparaît plutôt qu'à la prochaine passe
     manuelle. Le même réflexe que le moteur par le diff de CVE-RESEARCHER, appliqué à
     l'infrastructure au lieu du code.
+
+- name: Bug bounty harness
+  private: true
+  assisted: true
+  status: active
+  stack: [Python, Shell, recon tooling]
+  one_liner_en: "Agent tooling for live-target hunting: scope tracking, recon, JS mining and access-control probing."
+  one_liner_fr: "Outillage agentique pour la chasse sur cibles vivantes : suivi de périmètre, recon, minage de JS et sondage du contrôle d'accès."
+  body_en: >-
+    Open-source auditing and bug bounty are the same instinct pointed at different things: one
+    reads the code, the other only sees what the target exposes. The harness keeps scope and
+    coverage in one place, maps attack surface, mines JavaScript bundles for endpoints the UI
+    never calls, and drives access-control testing with two controlled identities so an
+    authorisation gap is proven rather than asserted.
+  body_fr: >-
+    Auditer de l'open source et faire du bug bounty, c'est le même réflexe pointé sur deux choses
+    différentes : l'un lit le code, l'autre ne voit que ce que la cible expose. Le harnais garde
+    périmètre et couverture au même endroit, cartographie la surface d'attaque, mine les bundles
+    JavaScript pour les endpoints que l'interface n'appelle jamais, et conduit le test de contrôle
+    d'accès avec deux identités contrôlées, pour qu'une faille d'autorisation soit prouvée et non
+    affirmée.
