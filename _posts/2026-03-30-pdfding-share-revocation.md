@@ -9,7 +9,7 @@ ref: pdfding-share-revocation
 cve: CVE-2026-34586
 ---
 
-**CVE-2026-34586** · [GHSA-vfqx-2464-38wf](https://github.com/advisories/GHSA-vfqx-2464-38wf) ·
+**CVE-2026-34586** · [GHSA-vfqx-2464-38wf](https://github.com/mrmn2/PdfDing/security/advisories/GHSA-vfqx-2464-38wf) ·
 PdfDing · CWE-863 · Medium, CVSS 6.5 · published 2026-03-30 · fixed in v1.7.1
 
 PdfDing is a self-hosted PDF manager. You can share a document with an expiry date, a maximum

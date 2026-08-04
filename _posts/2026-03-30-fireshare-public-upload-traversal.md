@@ -9,7 +9,7 @@ ref: fireshare-public-upload-traversal
 cve: CVE-2026-34745
 ---
 
-**CVE-2026-34745** · [GHSA-fvvp-rj8g-c7gc](https://github.com/advisories/GHSA-fvvp-rj8g-c7gc) ·
+**CVE-2026-34745** · [GHSA-fvvp-rj8g-c7gc](https://github.com/ShaneIsrael/fireshare/security/advisories/GHSA-fvvp-rj8g-c7gc) ·
 Fireshare · CWE-22 · Critical, CVSS 9.1 · published 2026-03-30 · fixed in 1.5.3
 
 Fireshare is a self-hosted media sharing app. It had already received a path traversal

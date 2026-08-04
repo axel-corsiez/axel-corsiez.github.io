@@ -9,7 +9,7 @@ ref: iris-graphql-authz
 cve: CVE-2026-41522
 ---
 
-**CVE-2026-41522** · [GHSA-3mxh-x92q-9r25](https://github.com/advisories/GHSA-3mxh-x92q-9r25) ·
+**CVE-2026-41522** · [GHSA-3mxh-x92q-9r25](https://github.com/dfir-iris/iris-web/security/advisories/GHSA-3mxh-x92q-9r25) ·
 DFIR-IRIS · CWE-285 · High · published 2026-05-28 · fixed in 2.4.28
 
 DFIR-IRIS is an incident response collaboration platform. Its whole model is that analysts see

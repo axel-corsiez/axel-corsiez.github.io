@@ -9,7 +9,7 @@ ref: oneuptime-unauth-notifications
 cve: CVE-2026-34758
 ---
 
-**CVE-2026-34758** · [GHSA-q253-6wcm-h8hp](https://github.com/advisories/GHSA-q253-6wcm-h8hp) ·
+**CVE-2026-34758** · [GHSA-q253-6wcm-h8hp](https://github.com/OneUptime/oneuptime/security/advisories/GHSA-q253-6wcm-h8hp) ·
 OneUptime · CWE-306 · Critical, CVSS 9.1 · published 2026-03-30 · fixed in 10.0.40
 
 OneUptime is an open-source monitoring platform. It sends alerts, which means it holds Twilio

@@ -28,7 +28,8 @@
     {% assign linked = site.posts | where: 'ref', a.post | where: 'lang', L | first %}
     {% if linked == nil %}{% assign linked = site.posts | where: 'ref', a.post | first %}{% endif %}
     <tr>
-      <td class="c-id"><a href="https://github.com/advisories/{{ a.ghsa }}" rel="noopener">{% if a.cve %}{{ a.cve }}{% else %}{{ a.ghsa }}{% endif %}</a></td>
+      {% if a.global_db %}{% assign adv_url = "https://github.com/advisories/" | append: a.ghsa %}{% else %}{% assign adv_url = "https://github.com/" | append: a.repo | append: "/security/advisories/" | append: a.ghsa %}{% endif %}
+      <td class="c-id"><a href="{{ adv_url }}" rel="noopener">{% if a.cve %}{{ a.cve }}{% else %}{{ a.ghsa }}{% endif %}</a></td>
       <td class="c-proj">{{ a.project }}</td>
       <td class="c-title">
         {% if linked %}<a href="{{ linked.url | relative_url }}">{{ a.title }}</a>

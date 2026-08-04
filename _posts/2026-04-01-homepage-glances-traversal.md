@@ -8,7 +8,7 @@ lang: en
 ref: homepage-glances-traversal
 ---
 
-[GHSA-rg3r-jprv-xq38](https://github.com/advisories/GHSA-rg3r-jprv-xq38) · Homepage
+[GHSA-rg3r-jprv-xq38](https://github.com/gethomepage/homepage/security/advisories/GHSA-rg3r-jprv-xq38) · Homepage
 (`gethomepage/homepage`) · CWE-22 · Medium, CVSS 4.3 · published 2026-04-01 · fixed in 1.12.3
 
 Homepage is the dashboard a lot of people put in front of their self-hosted stack. Its widgets

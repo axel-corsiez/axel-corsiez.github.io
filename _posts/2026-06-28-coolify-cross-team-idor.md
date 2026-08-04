@@ -9,7 +9,7 @@ ref: coolify-cross-team-idor
 cve: CVE-2026-57498
 ---
 
-**CVE-2026-57498** · [GHSA-725v-f5gh-22q9](https://github.com/advisories/GHSA-725v-f5gh-22q9) ·
+**CVE-2026-57498** · [GHSA-725v-f5gh-22q9](https://github.com/coollabsio/coolify/security/advisories/GHSA-725v-f5gh-22q9) ·
 Coolify · CWE-639 · Critical, CVSS 9.6 · published 2026-06-28 · fixed in v4.0.0-beta.474
 
 Coolify is a self-hosted deployment platform. Teams own servers, and a team must not be able

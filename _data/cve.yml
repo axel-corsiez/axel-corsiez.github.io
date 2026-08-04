@@ -1,5 +1,14 @@
 # Advisories credited to axel-corsiez.
 #
+# BEFORE ADDING A ROW HERE, CHECK IT UNAUTHENTICATED.
+#   gh api /repos/<owner>/<repo>/security-advisories/<ghsa>  shows content to credited users
+#   even when the advisory is NOT public. It is not proof of anything.
+#   The only proof: fetch https://github.com/<owner>/<repo>/security/advisories/<ghsa>
+#   with no token and confirm the body renders.
+#
+# global_db: true  => also has a page at github.com/advisories/<ghsa> (package ecosystems only).
+#                     Application repos usually do not, so the row must link to the repo advisory.
+#
 # published : advisory is live and the fix has shipped. Safe to describe in full.
 # pipeline  : aggregate counts only. No project names, no classes tied to a name,
 #             because those reports are not public yet.
@@ -31,6 +40,7 @@ published:
 
   - cve: CVE-2026-48146
     ghsa: GHSA-g6qx-g4pr-92v7
+    global_db: true   # also in the GitHub package advisory database
     project: Budibase
     repo: Budibase/budibase
     severity: high
@@ -43,6 +53,7 @@ published:
 
   - cve: CVE-2026-40163
     ghsa: GHSA-32pv-mpqg-h292
+    global_db: true   # also in the GitHub package advisory database
     project: Saltcorn
     repo: saltcorn/saltcorn
     severity: high
@@ -55,6 +66,7 @@ published:
 
   - cve: CVE-2026-35594
     ghsa: GHSA-96q5-xm3p-7m84
+    global_db: true   # also in the GitHub package advisory database
     project: Vikunja
     repo: go-vikunja/vikunja
     severity: medium
@@ -67,6 +79,7 @@ published:
 
   - cve: CVE-2026-35490
     ghsa: GHSA-jmrh-xmgh-x9j4
+    global_db: true   # also in the GitHub package advisory database
     project: changedetection.io
     repo: dgtlmoon/changedetection.io
     severity: critical
@@ -79,6 +92,7 @@ published:
 
   - cve: CVE-2026-35463
     ghsa: GHSA-w48f-wwwf-f5fr
+    global_db: true   # also in the GitHub package advisory database
     project: pyLoad
     repo: pyload/pyload
     severity: high
