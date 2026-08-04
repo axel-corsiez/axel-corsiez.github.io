@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} · {{ site.tagline }}{% endif %}</title>
+<meta name="description" content="{% if page.excerpt_text %}{{ page.excerpt_text }}{% else %}{{ site.description }}{% endif %}">
+<meta name="author" content="{{ site.author }}">
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+<meta property="og:description" content="{% if page.excerpt_text %}{{ page.excerpt_text }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230a0c10'/><text x='2' y='12' font-family='monospace' font-size='11' fill='%2357f287'>z</text></svg>">
+</head>
+<body>
+<div class="scan" aria-hidden="true"></div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand-prompt">z1kx@offsec</span><span class="brand-sep">:</span><span class="brand-path">~</span><span class="brand-caret">$</span>
+    </a>
+    <nav class="site-nav">
+      <a href="{{ '/' | relative_url }}">articles</a>
+      <a href="{{ '/whoami/' | relative_url }}">whoami</a>
+      <a href="https://github.com/{{ site.github_user }}" rel="me noopener">github</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  {{ content }}
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span class="dim">{{ site.title }} / {{ site.tagline }}</span>
+    <span class="dim">all research conducted on systems I am authorised to test</span>
+  </div>
+</footer>
+</body>
+</html>

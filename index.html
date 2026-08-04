@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <h1>Finding bugs in software<br>that <span class="accent">everybody</span> runs.</h1>
+  <p>
+    Offensive security research: vulnerability hunting in open-source projects,
+    the tooling built to do it at scale, and notes from the field. Everything here is
+    disclosed responsibly, and nothing unpatched gets published.
+  </p>
+  <ul class="stats">
+    <li><b>83</b> projects audited</li>
+    <li><b>35</b> written reports</li>
+    <li><b>17</b> vulnerability classes modelled</li>
+  </ul>
+</section>
+
+<section class="list">
+  <h2 class="list-title">articles</h2>
+
+  {% if site.posts.size > 0 %}
+    {% for post in site.posts %}
+    <a class="entry" href="{{ post.url | relative_url }}">
+      <p class="kicker">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+        {% if post.reading_time %}<span class="sep">/</span>{{ post.reading_time }}{% endif %}
+      </p>
+      <h2>{{ post.title }}</h2>
+      {% if post.summary %}<p>{{ post.summary }}</p>{% endif %}
+      {% if post.tags and post.tags.size > 0 %}
+      <p class="tags">{% for t in post.tags %}<span class="tag">{{ t }}</span>{% endfor %}</p>
+      {% endif %}
+    </a>
+    {% endfor %}
+  {% else %}
+    <p class="empty">no articles yet. check back.</p>
+  {% endif %}
+</section>

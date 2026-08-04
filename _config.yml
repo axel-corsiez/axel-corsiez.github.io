@@ -1,0 +1,24 @@
+title: z1kx
+tagline: offensive security research
+description: >-
+  Vulnerability research, tooling and field notes from open-source security work.
+author: z1kx
+
+url: "https://axel-corsiez.github.io"
+baseurl: ""
+
+github_user: axel-corsiez
+
+markdown: kramdown
+permalink: /:year/:month/:slug/
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  hard_wrap: false
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
