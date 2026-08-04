@@ -51,3 +51,12 @@ Tout ce qui est publié ici concerne du code open source analysé en local, ou d
 suis autorisé à tester. Les découvertes vont d'abord aux mainteneurs et ne font l'objet d'un
 article qu'une fois corrigées. Le travail encore en relecture apparaît sur ce site sous forme de
 compteur, sans nom de projet.
+
+## Contact
+
+<ul class="contact">
+  <li><b>github</b><a href="https://github.com/axel-corsiez" rel="me noopener">axel-corsiez</a></li>
+  <li><b>linkedin</b><a href="https://www.linkedin.com/in/axel-corsiez/" rel="me noopener">axel-corsiez</a></li>
+</ul>
+
+<p class="avail"><b>Ouvert aux opportunités.</b> Recherche de vulnérabilités, sécurité applicative, outillage offensif.</p>

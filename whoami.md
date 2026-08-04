@@ -47,3 +47,12 @@ not when it would be most interesting to post.
 Everything published here concerns open-source code analysed locally, or systems I am
 authorised to test. Findings go to maintainers first and are written about only once fixed.
 Work that is still in review appears on this site as a count, with no project named.
+
+## Contact
+
+<ul class="contact">
+  <li><b>github</b><a href="https://github.com/axel-corsiez" rel="me noopener">axel-corsiez</a></li>
+  <li><b>linkedin</b><a href="https://www.linkedin.com/in/axel-corsiez/" rel="me noopener">axel-corsiez</a></li>
+</ul>
+
+<p class="avail"><b>Open to opportunities.</b> Vulnerability research, application security, offensive tooling.</p>

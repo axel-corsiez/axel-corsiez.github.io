@@ -7,6 +7,7 @@
 - name: CVE-RESEARCHER
   flagship: true
   private: true
+  assisted: true
   status: active
   stack: [Python, static analysis, taint tracking]
   one_liner_en: "A research pipeline that turns a corpus of repositories into a short, ranked list of candidates worth a human's time."
@@ -26,3 +27,52 @@
   outcome_en: "82 projects processed, 35 written reports, 11 published advisories."
   outcome_fr: "82 projets traités, 35 rapports rédigés, 11 avis publiés."
   read_more: cve-pipeline   # ref of the write-up
+
+- name: Talium
+  private: true
+  assisted: true
+  status: prototype
+  stack: [Rust]
+  one_liner_en: "A command-and-control framework written from scratch, to understand the design decisions from the operator side."
+  one_liner_fr: "Un framework de command-and-control écrit de zéro, pour comprendre les décisions de conception depuis le côté opérateur."
+  body_en: >-
+    Building the offensive side of a tool teaches you where its defensive detection surfaces
+    actually are. The value of this one is not the artefact, it is the reasoning: what a C2 has
+    to expose to function, and therefore what a defender should be watching.
+  body_fr: >-
+    Construire le côté offensif d'un outil apprend où se trouvent réellement ses surfaces de
+    détection. L'intérêt ici n'est pas l'artefact, c'est le raisonnement : ce qu'un C2 doit
+    exposer pour fonctionner, et donc ce qu'un défenseur devrait surveiller.
+
+- name: lsass-standalone
+  private: true
+  assisted: true
+  status: research
+  stack: [Rust, Windows internals]
+  one_liner_en: "LSASS credential dumping through a vulnerable signed driver, as an EDR evasion research exercise."
+  one_liner_fr: "Extraction d'identifiants depuis LSASS via un pilote signé vulnérable, comme exercice de recherche sur l'évasion EDR."
+  body_en: >-
+    A bring-your-own-vulnerable-driver study: what a signed but flawed driver grants at ring 0,
+    and which parts of a detection stack notice. Windows internals and driver-level primitives,
+    on a lab machine I own.
+  body_fr: >-
+    Une étude BYOVD : ce qu'un pilote signé mais défectueux accorde en ring 0, et quelles parties
+    d'une pile de détection le remarquent. Internals Windows et primitives au niveau pilote, sur
+    une machine de laboratoire qui m'appartient.
+
+- name: ASM platform
+  private: true
+  assisted: true
+  status: active
+  stack: [Python, Shell]
+  one_liner_en: "Attack surface management: continuous discovery and tracking of what a target actually exposes."
+  one_liner_fr: "Gestion de surface d'attaque : découverte et suivi continus de ce qu'une cible expose réellement."
+  body_en: >-
+    Enumeration, liveness, fingerprinting and change detection over a tracked scope, so that new
+    surface is noticed when it appears rather than at the next manual sweep. The same instinct as
+    the diff-first engine in CVE-RESEARCHER, applied to infrastructure instead of code.
+  body_fr: >-
+    Énumération, liveness, fingerprinting et détection de changement sur un périmètre suivi, pour
+    que la surface nouvelle soit repérée quand elle apparaît plutôt qu'à la prochaine passe
+    manuelle. Le même réflexe que le moteur par le diff de CVE-RESEARCHER, appliqué à
+    l'infrastructure au lieu du code.

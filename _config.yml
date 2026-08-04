@@ -8,6 +8,7 @@ url: "https://axel-corsiez.github.io"
 baseurl: ""
 
 github_user: axel-corsiez
+linkedin_url: https://www.linkedin.com/in/axel-corsiez/
 
 markdown: kramdown
 permalink: /:year/:month/:slug/

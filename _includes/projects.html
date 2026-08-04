@@ -1,8 +1,10 @@
 {% assign L = include.lang | default: 'en' %}
 {% if L == 'fr' %}
   {% assign t_head = 'projets' %}{% assign t_priv = 'privé' %}{% assign t_more = 'lire le fonctionnement' %}
+  {% assign t_ai = 'assisté par IA' %}
 {% else %}
   {% assign t_head = 'projects' %}{% assign t_priv = 'private' %}{% assign t_more = 'how it works' %}
+  {% assign t_ai = 'AI-assisted' %}
 {% endif %}
 
 <h2 class="list-title">{{ t_head }}</h2>
@@ -13,6 +15,7 @@
     <h3 class="proj-name">{{ p.name }}</h3>
     <span class="proj-flags">
       {% if p.private %}<span class="proj-flag is-private">{{ t_priv }}</span>{% endif %}
+      {% if p.assisted %}<span class="proj-flag is-assisted">{{ t_ai }}</span>{% endif %}
       {% if p.status %}<span class="proj-flag">{{ p.status }}</span>{% endif %}
     </span>
   </div>
@@ -33,3 +36,21 @@
   </div>
 </article>
 {% endfor %}
+
+<p class="embargo">
+{% if L == 'fr' %}
+  <b>Sur la mention « assisté par IA ».</b> Une grande partie de la génération de code de ces
+  projets a été faite avec un modèle. La direction, le raisonnement sécurité, le choix des cibles
+  et la validation sont les miens ; l'écriture ligne à ligne, souvent non.
+  <br><span class="dim">Je le mentionne parce que c'est vérifiable et parce que le pipeline qui a
+  produit les avis ci-dessus est lui-même un argument : ce qui distingue, ce n'est plus de taper
+  le code, c'est de savoir quoi chercher et de refuser ce qui ne tient pas.</span>
+{% else %}
+  <b>On the AI-assisted label.</b> A large part of the code generation in these projects was done
+  with a model. The direction, the security reasoning, the target selection and the validation are
+  mine; the line-by-line writing often is not.
+  <br><span class="dim">I say so because it is verifiable, and because the pipeline that produced
+  the advisories above is itself the argument: what distinguishes the work is no longer typing the
+  code, it is knowing what to look for and refusing what does not hold up.</span>
+{% endif %}
+</p>

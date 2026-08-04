@@ -48,6 +48,7 @@
   <a class="win{% if w == 'articles' %} on{% endif %}" href="{{ home | relative_url }}">0:articles{% if w == 'articles' %}*{% endif %}</a>
   <a class="win{% if w == 'whoami' %} on{% endif %}" href="{{ who | relative_url }}">1:whoami{% if w == 'whoami' %}*{% endif %}</a>
   <a class="win" href="https://github.com/{{ site.github_user }}" rel="me noopener">2:github</a>
+  {% if site.linkedin_url %}<a class="win" href="{{ site.linkedin_url }}" rel="me noopener">3:linkedin</a>{% endif %}
   <span class="winsp"><b>{{ cur }}</b>/<a href="{{ alt | relative_url }}" hreflang="{{ other }}">{{ other }}</a></span>
 </header>
 
