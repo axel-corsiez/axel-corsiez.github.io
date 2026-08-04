@@ -137,6 +137,12 @@ published:
     title: "Expired, view-capped and deleted shares that still served the file"
     post: pdfding-share-revocation
 
+# Corpus figures, recounted from the research workspace on 2026-08-04.
+stats:
+  projects_audited: 82
+  written_reports: 35
+  patterns_modelled: 22
+
 # Everything else credited to axel-corsiez but not public.
 # Counts only: naming a project here would announce an unfixed issue in it.
 pipeline:

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hunting CVEs at scale: notes from auditing 83 open-source projects"
+title: "Hunting CVEs at scale: notes from auditing 82 open-source projects"
 summary: "Why I stopped reading code looking for bugs, and started looking for bug-shaped code instead. The architecture of a research pipeline, and what it actually returns."
 reading_time: "16 min"
 tags: [vulnerability-research, tooling, static-analysis, methodology]
@@ -79,7 +79,7 @@ shallow pass over eighty and a deep pass over the twenty places that lit up.
 
   <rect class="d-box" x="232" y="186" width="196" height="84" rx="2"/>
   <text class="d-t" x="330" y="210" text-anchor="middle">pattern knowledge base</text>
-  <text class="d-t-s" x="330" y="230" text-anchor="middle">17 modelled classes</text>
+  <text class="d-t-s" x="330" y="230" text-anchor="middle">22 modelled classes</text>
   <text class="d-t-s" x="330" y="246" text-anchor="middle">routed by target label</text>
   <text class="d-t-s" x="330" y="262" text-anchor="middle">framework aware</text>
 
@@ -260,7 +260,7 @@ set.
 
 ### The pattern knowledge base
 
-Seventeen vulnerability classes are modelled explicitly: header canonicalisation, request
+Twenty-two vulnerability classes are modelled explicitly: header canonicalisation, request
 smuggling, path normalisation, trusted-IP handling, certificate verification, token
 algorithm confusion, deserialisation, archive extraction, upload handling, object-level
 authorisation, injection, and more.
@@ -447,14 +447,19 @@ rejection. Every change has to keep proving it still refuses to cry wolf.
 
 ## What it actually returns
 
-Across the corpus so far: **83 open-source projects processed, 35 taken far enough to
+Across the corpus so far: **82 open-source projects processed, 35 taken far enough to
 produce a written report.** Self-hosted platforms, LLM tooling, ITSM and asset management,
 CI/CD, developer infrastructure. Mostly projects in the range where the code is big enough
 to hide things but the security team is small or nonexistent.
 
-A small number of advisories have gone out through coordinated disclosure. None are
-published yet, which is exactly why none are described here. The projects get their window
-first, and the write-ups follow the fix, not the finding.
+**53 advisories credit me across those projects. 11 are published**, and each has its own
+write-up linked from [the index]({{ '/' | relative_url }}): authentication bypasses, unauthenticated
+path traversal, SSRF, cross-tenant authorisation, command execution. Of the rest, 17 are still
+with maintainers and 25 were closed without a public advisory, which covers everything from
+"declined" to "quietly fixed".
+
+Three more went to a vendor by email rather than through GitHub. They are accepted with a fix
+scheduled, so they stay unnamed here until the release ships.
 
 The ratio is worth stating plainly, because tooling articles usually hide it: most targets
 return nothing worth reporting. That is the correct outcome. A pipeline that produces a
